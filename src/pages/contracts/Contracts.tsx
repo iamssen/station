@@ -18,10 +18,9 @@ import Search from './Search'
 
 const Contracts = () => {
   useGoBack('/')
-  const [page, setPage] = useState(1)
   const [param, setParam] = useState<string>('') // For searching with contract address
   const [params, setParams] = useState<{ owner?: string; search?: string }>({})
-  const { error, ui, create, upload } = useContracts({ page, ...params })
+  const { error, ui, create, upload } = useContracts({ ...params })
   const contract: ContractUI | undefined = useContract(param)
   const { Contracts: title } = useMenu()
   const { modal } = useApp()
@@ -58,11 +57,7 @@ const Contracts = () => {
         {contract ? (
           <Contract {...contract} />
         ) : (
-          <Pagination
-            {...pagination}
-            empty={card && <Info {...card} icon="info_outline" />}
-            action={setPage}
-          >
+          <Pagination empty={card && <Info {...card} icon="info_outline" />}>
             {list?.map((contract, index) => (
               <ErrorBoundary fallback={<ErrorComponent />} key={index}>
                 <Contract {...contract} />

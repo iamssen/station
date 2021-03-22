@@ -13,8 +13,8 @@ import Voter from '../pages/proposal/Voter'
 
 const Votes = ({ id, count }: { id: string; count: Dictionary<number> }) => {
   const tabs = useVoteOptions(count)
-  const { currentTab, page, renderTabs, getLink } = useTabs('option', tabs)
-  const { error, ui } = useVotes({ id, option: currentTab, page })
+  const { currentTab, renderTabs } = useTabs('option', tabs)
+  const { error, ui } = useVotes({ id, option: currentTab })
 
   const renderHeadings = (headings: VotesTable['headings']) => {
     const { voter, answer } = headings
@@ -38,8 +38,8 @@ const Votes = ({ id, count }: { id: string; count: Dictionary<number> }) => {
     )
   }
 
-  const render = ({ pagination, card, table }: TableUI<VotesTable>) => (
-    <Pagination {...pagination} link={getLink} empty={card?.content}>
+  const render = ({ card, table }: TableUI<VotesTable>) => (
+    <Pagination empty={card?.content}>
       {table && (
         <Table>
           <thead>{renderHeadings(table.headings)}</thead>

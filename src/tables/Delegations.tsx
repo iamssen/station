@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import { DelegationsTable, DelegationContent } from '../use-station/src'
 import { TableUI } from '../use-station/src'
 import { useDelegations } from '../use-station/src'
@@ -12,8 +11,7 @@ import Number from '../components/Number'
 import s from './Validator.module.scss'
 
 const Delegations = ({ address }: { address: string }) => {
-  const [page, setPage] = useState(1)
-  const { error, title, ui } = useDelegations(address, { page })
+  const { error, title, ui } = useDelegations(address, {})
 
   const renderHeadings = (headings: DelegationsTable['headings']) => {
     const { hash, type, change, date } = headings
@@ -46,8 +44,8 @@ const Delegations = ({ address }: { address: string }) => {
     )
   }
 
-  const render = ({ pagination, card, table }: TableUI<DelegationsTable>) => (
-    <Pagination {...pagination} action={setPage} empty={card?.content}>
+  const render = ({ card, table }: TableUI<DelegationsTable>) => (
+    <Pagination empty={card?.content}>
       {table && (
         <Table>
           <thead>{renderHeadings(table.headings)}</thead>

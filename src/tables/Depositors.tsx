@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import { DepositorsTable, DepositorContent } from '../use-station/src'
 import { TableUI } from '../use-station/src'
 import { useDepositors } from '../use-station/src'
@@ -11,8 +10,7 @@ import Displays from '../components/Displays'
 import Voter from '../pages/proposal/Voter'
 
 const Depositors = ({ id }: { id: string }) => {
-  const [page, setPage] = useState(1)
-  const { error, title, ui } = useDepositors(id, { page })
+  const { error, title, ui } = useDepositors(id, {})
 
   const renderHeadings = (headings: DepositorsTable['headings']) => {
     const { depositor, displays } = headings
@@ -41,8 +39,8 @@ const Depositors = ({ id }: { id: string }) => {
     )
   }
 
-  const render = ({ pagination, card, table }: TableUI<DepositorsTable>) => (
-    <Pagination {...pagination} action={setPage} empty={card?.content}>
+  const render = ({ card, table }: TableUI<DepositorsTable>) => (
+    <Pagination empty={card?.content}>
       {table && (
         <Table>
           <thead>{renderHeadings(table.headings)}</thead>

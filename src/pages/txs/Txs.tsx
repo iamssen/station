@@ -14,15 +14,15 @@ import Tx from './Tx'
 
 const List = ({ user }: { user: User }) => {
   const tabs = useTxTypes()
-  const { currentTab, page, renderTabs, getLink } = useTabs('tag', tabs)
-  const params = { type: currentTab as TxType, page }
+  const { currentTab, renderTabs } = useTabs('tag', tabs)
+  const params = { type: currentTab as TxType }
   const { error, ui } = useTxs(user, params)
 
-  const render = ({ pagination, card, list }: TxsUI) => {
+  const render = ({ card, list }: TxsUI) => {
     const empty = card && <Info {...card} icon="info_outline" />
 
     return (
-      <Pagination {...pagination} empty={empty} link={getLink}>
+      <Pagination empty={empty}>
         {list?.map((tx, index) => (
           <ErrorBoundary fallback={<ErrorComponent />} key={index}>
             <Tx {...tx} />

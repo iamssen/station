@@ -10,22 +10,14 @@ export default (name: string, tabs: { key: string; label: string }[]) => {
 
   /* unmount: init url */
   useEffect(() => {
-    const initial = getNextSearch([
-      [name, ''],
-      ['page', ''],
-    ])
-
+    const initial = getNextSearch([[name, '']])
     return () => history.replace(initial)
     // eslint-disable-next-line
   }, [])
 
   /* render: tab */
   const renderTab = ({ key, label }: { key: string; label: string }) => {
-    const next = getNextSearch([
-      [name, key],
-      ['page', ''],
-    ])
-
+    const next = getNextSearch([[name, key]])
     const isCurrent = key === currentTab
     const className = c('badge', isCurrent && 'badge-primary')
     const attrs = { className, children: label, key }
@@ -37,11 +29,6 @@ export default (name: string, tabs: { key: string; label: string }[]) => {
   const currentTab = sp.get(name) || ''
   return {
     currentTab,
-    page: Number(sp.get('page')) || 1,
     renderTabs: () => <section className="tabs">{tabs.map(renderTab)}</section>,
-    getLink: (page: number) => ({
-      pathname,
-      search: getNextSearch([['page', String(page)]]),
-    }),
   }
 }
