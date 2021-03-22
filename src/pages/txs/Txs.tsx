@@ -22,7 +22,7 @@ const List = ({ user }: { user: User }) => {
     const empty = card && <Info {...card} icon="info_outline" />
 
     return (
-      <Pagination more={more} empty={empty}>
+      <Pagination isEmpty={!list?.length} empty={empty} more={more}>
         {list?.map((tx, index) => (
           <ErrorBoundary fallback={<ErrorComponent />} key={index}>
             <Tx {...tx} />

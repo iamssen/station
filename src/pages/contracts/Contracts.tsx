@@ -50,14 +50,19 @@ const Contracts = () => {
     />
   )
 
-  const render = ({ pagination, card, list, search: attrs }: ContractsUI) => {
+  const render = ({ card, list, search: attrs, more }: ContractsUI) => {
     return (
       <>
         <Search submit={submit} placeholder={attrs?.placeholder} />
+
         {contract ? (
           <Contract {...contract} />
         ) : (
-          <Pagination empty={card && <Info {...card} icon="info_outline" />}>
+          <Pagination
+            isEmpty={!list?.length}
+            empty={card ? <Info {...card} icon="info_outline" /> : undefined}
+            more={more}
+          >
             {list?.map((contract, index) => (
               <ErrorBoundary fallback={<ErrorComponent />} key={index}>
                 <Contract {...contract} />
