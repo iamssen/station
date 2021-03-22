@@ -1,22 +1,22 @@
 import { FC, ReactNode } from 'react'
+import styles from './Pagination.module.scss'
 
 type Props = {
   title?: string
   empty?: ReactNode
+  more?: () => void
 }
 
-const Pagination: FC<Props> = (props) => {
-  const { title, empty, children } = props
-
+const Pagination: FC<Props> = ({ title, empty, more, children }) => {
   const renderEmpty = () =>
     empty ? <>{empty}</> : <p>{title ? `No ${title}s` : 'No Data'}</p>
-
-  const more = true
 
   return more ? (
     <>
       {children}
-      <button>more</button>
+      <button className={styles.more} onClick={more}>
+        more
+      </button>
     </>
   ) : (
     renderEmpty()

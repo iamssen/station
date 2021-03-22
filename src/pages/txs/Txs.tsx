@@ -18,11 +18,11 @@ const List = ({ user }: { user: User }) => {
   const params = { type: currentTab as TxType }
   const { error, ui } = useTxs(user, params)
 
-  const render = ({ card, list }: TxsUI) => {
+  const render = ({ card, list, more }: TxsUI) => {
     const empty = card && <Info {...card} icon="info_outline" />
 
     return (
-      <Pagination empty={empty}>
+      <Pagination more={more} empty={empty}>
         {list?.map((tx, index) => (
           <ErrorBoundary fallback={<ErrorComponent />} key={index}>
             <Tx {...tx} />
