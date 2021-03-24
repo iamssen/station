@@ -1,0 +1,9 @@
+@import './_variables';
+@import './_mixins';
+
+.tabs {
+  @include flex(flex-start);
+  white-space: nowrap;
+  padding-right: $gutter;
+  text-transform: capitalize;
+}

@@ -1,0 +1,14 @@
+{
+  "author": "Terra <engineering@terra.money> (https://terra.money)",
+  "license": "Apache-2.0",
+  "repository": "github:terra-project/station",
+  "bugs": "https://github.com/terra-project/station/issues",
+  "homepage": "https://github.com/terra-project/station/tree/master/src/{name}",
+  "engines": {
+    "node": ">=12"
+  },
+  "publishConfig": {
+    "cache": "~/.npm",
+    "access": "public"
+  }
+}
