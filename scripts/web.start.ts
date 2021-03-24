@@ -1,5 +1,6 @@
 import { start } from '@rocket-scripts/web'
 import puppeteer from 'puppeteer'
+import { ProvidePlugin } from 'webpack'
 
 (async () => {
   // chromium debugging port
@@ -12,11 +13,17 @@ import puppeteer from 'puppeteer'
     webpackConfig: {
       resolve: {
         fallback: {
-          'crypto': require.resolve('crypto-browserify'),
-          'stream': require.resolve('stream-browserify'),
+          crypto: require.resolve('crypto-browserify'),
+          stream: require.resolve('stream-browserify')
         }
-      }
-    }
+      },
+      plugins: [
+        new ProvidePlugin({
+          Buffer: ['buffer', 'Buffer'],
+          process: 'process/browser'
+        })
+      ]
+    },
   })
   
   const browser = await puppeteer.launch({

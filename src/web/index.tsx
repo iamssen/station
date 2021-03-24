@@ -1,5 +1,6 @@
 import 'core-js'
 import 'react-app-polyfill/ie11'
+import 'regenerator-runtime/runtime'
 
 import React, { ReactNode } from 'react'
 import { render } from 'react-dom'

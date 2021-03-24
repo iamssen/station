@@ -12753,6 +12753,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"process@npm:^0.11.10":
+  version: 0.11.10
+  resolution: "process@npm:0.11.10"
+  checksum: ed93a85e9185b40fb01788c588a87c1a9da0eb925ef7cebebbe1b8bbf0eba1802130366603a29e3b689c116969d4fe018de6aed3474bbeb5aefb3716b85d6449
+  languageName: node
+  linkType: hard
+
 "progress@npm:^2.0.0, progress@npm:^2.0.1, progress@npm:^2.0.3":
   version: 2.0.3
   resolution: "progress@npm:2.0.3"
@@ -13438,7 +13445,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"regenerator-runtime@npm:^0.13, regenerator-runtime@npm:^0.13.4, regenerator-runtime@npm:^0.13.7":
+"regenerator-runtime@npm:^0.13.4, regenerator-runtime@npm:^0.13.7":
   version: 0.13.7
   resolution: "regenerator-runtime@npm:0.13.7"
   checksum: 6ef567c662088b1b292214920cbd72443059298d477f72e1a37e0a113bafbfac9057cbfe35ae617284effc4b423493326a78561bbff7b04162c7949bdb9624e8
@@ -14882,6 +14889,7 @@ fsevents@^1.2.7:
     numeral: ^2.0.6
     post-message-stream: ^3.0.0
     prettier: ^2
+    process: ^0.11.10
     puppeteer: ^6.0.0
     qrcode.react: ^1.0.1
     qs: ^6.9.4
@@ -14897,7 +14905,7 @@ fsevents@^1.2.7:
     react-modal: ^3.11.2
     react-router-dom: ^5.2.0
     react-toastify: ^6.1.0
-    regenerator-runtime: ^0.13
+    regenerator-runtime: ^0.13.7
     rocket-punch: ^2.4.1
     secp256k1: 4.0.2
     semver: ^7.3.2

@@ -4,6 +4,7 @@ import Prices from './Prices'
 import TaxRate from './TaxRate'
 import DisplaySelector from './DisplaySelector'
 import StakingRatio from './StakingRatio'
+import React from 'react'
 
 const Columns = () => {
   const { ui, error } = useDashboard()
