@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import classNames from 'classnames/bind'
 import { gt, gte, isFinite, lt, lte } from '@terra-money/use-station'
 import styles from './SlippageTolerance.module.scss'

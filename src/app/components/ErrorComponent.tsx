@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import React, { FC } from 'react'
 import { AxiosError } from 'axios'
 import { useInfo } from '@terra-money/use-station'
 import { FORBIDDEN } from '@terra-money/use-station/components/ErrorBoundary'

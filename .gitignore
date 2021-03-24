@@ -39,6 +39,7 @@ yarn-debug.log*
 yarn-error.log*
 # only use yarn 2.x
 package-lock.json
+tsconfig.tsbuildinfo
 
 # yarn berry
 .yarn/*

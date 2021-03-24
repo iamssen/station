@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 import { useSwap, useInfo, User } from '@terra-money/use-station'
 import { useApp } from '../hooks'
 import WithAuth from '../auth/WithAuth'
